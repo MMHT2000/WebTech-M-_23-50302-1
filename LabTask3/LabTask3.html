@@ -1,1 +1,133 @@
+<!DOCTYPE html>
+<html>
 
+<head>
+<title>The CALCULATOR!!!</title>
+
+<style>
+
+body{
+    text-align:center;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+table{
+    margin:auto;
+    background: navy;
+    padding:10px;
+}
+
+input{
+    width:250px;
+    height:40px;
+    font-size:25px;
+    text-align:right;
+    background-color: aquamarine;
+}
+
+button{
+    width:50px;
+    height:50px;
+    font-size:18px;
+}
+
+.number{
+    background: grey;
+}
+
+.operator{
+    background:blue;
+    color:white;
+}
+
+.equal{
+    background:green;
+    color:white;
+}
+
+.clear{
+    background:red;
+    color:white;
+}
+
+</style>
+</head>
+
+<body>
+
+<h2>Welcome to the World's most innovative Calculator designed by Apple California.</h2>
+
+<table border="1">
+
+<tr>
+<td colspan="4">
+<input type="text" id="display">
+</td>
+</tr>
+
+<tr>
+<td><button class="number" onclick="addValue('7')">7</button></td>
+<td><button class="number" onclick="addValue('8')">8</button></td>
+<td><button class="number" onclick="addValue('9')">9</button></td>
+<td><button class="operator" onclick="addValue('/')">/</button></td>
+</tr>
+
+<tr>
+<td><button class="number" onclick="addValue('4')">4</button></td>
+<td><button class="number" onclick="addValue('5')">5</button></td>
+<td><button class="number" onclick="addValue('6')">6</button></td>
+<td><button class="operator" onclick="addValue('*')">*</button></td>
+</tr>
+
+<tr>
+<td><button class="number" onclick="addValue('1')">1</button></td>
+<td><button class="number" onclick="addValue('2')">2</button></td>
+<td><button class="number" onclick="addValue('3')">3</button></td>
+<td><button class="operator" onclick="addValue('-')">-</button></td>
+</tr>
+
+<tr>
+<td><button class="number" onclick="addValue('0')">0</button></td>
+<td><button class="clear" onclick="clearDisplay()">C</button></td>
+<td><button class="equal" onclick="calculate()">=</button></td>
+<td><button class="operator" onclick="addValue('+')">+</button></td>
+</tr>
+
+
+
+</table>
+
+<script>
+
+function addValue(value)
+{
+    document.getElementById("display").value += value;
+}
+
+function calculate()
+{
+    let expression = document.getElementById("display").value;
+
+    if(expression !== "")
+    {
+        document.getElementById("display").value = eval(expression);
+    }
+}
+
+function clearDisplay()
+{
+    document.getElementById("display").value = "";
+}
+
+document.getElementById("display").addEventListener("keydown", function(event){
+
+    alert("Please use the calculator buttons only.");
+
+    event.preventDefault();
+
+});
+
+</script>
+
+</body>
+</html>
